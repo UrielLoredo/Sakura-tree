@@ -392,6 +392,9 @@ section {
       -ms-transform: rotate(80deg);
       -o-transform: rotate(80deg);
       transform: rotate(80deg); }
+    .sakuraTreeBranch.one .sakuraTreeFlower:nth-of-type(1) {
+      left: 56%;
+      top: 20%; }
   .sakuraTreeFlower {
     position: relative;
     display: inline-block;

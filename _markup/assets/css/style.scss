@@ -300,8 +300,8 @@ section {
 		height: 100%;
 		position: relative;
 		width: 100%;
-		&.one{
-			&::before{
+		&.one {
+			&::before {
 				content: '';
 				display: block;
 				position: absolute;
@@ -314,6 +314,12 @@ section {
 				border-left: 5px solid transparent;
 				border-bottom: 194px solid $cherrywood;
 				@include transform(rotate(80deg));
+			}
+			.sakuraTreeFlower {
+				&:nth-of-type(1) {
+					left: 56%;
+					top: 20%;
+				}
 			}
 		}
 	}
