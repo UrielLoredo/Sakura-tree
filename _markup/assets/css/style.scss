@@ -1,0 +1,464 @@
+@import 'config';
+@import 'mixins';
+@import 'fonts';
+@import 'neat';
+@import 'flexbox';
+@import 'icons';
+@import 'animation';
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+html {
+	text-rendering: optimizeLegibility;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+html,
+body {
+	height: 100%;
+	position: relative;
+	width: 100%;
+}
+
+input,
+label,
+select,
+button,
+textarea {
+	margin: 0;
+	border: 0;
+	padding: 0;
+	display: inline-block;
+	vertical-align: middle;
+	white-space: normal;
+	background: none;
+	line-height: 1;
+}
+
+*:focus {
+	outline: 0;
+}
+
+input,
+textarea,
+select {
+	@include basic_transition(0.25s);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	&::-webkit-input-placeholder {
+		color: $gray;
+	}
+	&:-moz-placeholder {
+		color: $gray;
+	}
+	&::-moz-placeholder {
+		color: $gray;
+	}
+	&:-ms-input-placeholder {
+		color: $gray;
+	}
+}
+
+button,
+input[type=reset],
+input[type=button],
+input[type=submit],
+input[type=checkbox],
+input[type=radio],
+select {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+::-webkit-file-upload-button {
+	padding: 0;
+	border: 0;
+	background: none;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+	background: none;
+	border: 0;
+	color: inherit;
+	cursor: default;
+	font: inherit;
+	line-height: normal;
+	overflow: visible;
+	padding: 0;
+	-webkit-appearance: button;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+[role="button"] {
+	color: inherit;
+	cursor: default;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	white-space: pre;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+textarea {
+	vertical-align: top;
+	overflow: auto;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	display: block;
+	width: 100%;
+	min-height: 100vh;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	background: $gallery;
+	background-size: cover;
+	color: $white;
+	font-size: $font_size;
+	font-family: $arial;
+	font-weight: $font_weight;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a,
+button {
+	@include basic_transition(0.5s);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: normal;
+	&:focus {
+		outline: none;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: normal;
+	font-family: "SST W01 Bold";
+}
+
+h2 {
+	font-size: $font_title + 20px;
+	@media all and (max-width: 767px) {
+		font-size: $font_title;
+	}
+}
+
+h3 {
+	font-size: $font_title;
+	@media all and (max-width: 767px) {
+		font-size: $font_subtitle;
+	}
+}
+
+h4 {
+	font-size: $font_base;
+}
+
+h5 {
+	font-size: $font_size;
+}
+
+h6 {
+	font-size: 14px;
+}
+
+p,
+li {
+	font-size: $font_size;
+	color: $white;
+}
+
+a {
+	color: $white;
+	cursor: pointer;
+}
+
+em {
+	color: $gold;
+	font-style: italic;
+}
+
+mark {
+	background: $gold;
+	color: $white;
+}
+
+.text {
+	&-align-center {
+		text-align: center;
+	}
+	&-align-left {
+		text-align: left;
+	}
+	&-align-right {
+		text-align: right;
+	}
+	&-align-justify {
+		text-align: justify;
+	}
+}
+
+.hide {
+	display: none;
+}
+
+.container {
+	position: relative;
+	max-width: 992px;
+	margin: 0 auto;
+	padding: 0;
+	height: 100%;
+	overflow: hidden;
+	@media all and (max-width: 767px) {
+		width: 100%;
+	}
+}
+
+header,
+nav,
+footer,
+section {
+	position: relative;
+	margin: 0 auto;
+	padding: 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+.main {
+	position: relative;
+	min-height: 100%;
+	width: 100%;
+}
+
+.sakuraTree {
+	height: 500px;
+	width: 640px;
+	&Stem {
+		height: 100%;
+		width: 100%;
+		position: relative;
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			left: 10%;
+			margin: 0 auto;
+			width: 30px;
+			height: 0px;
+			border-right: 10px solid transparent;
+			border-left: 10px solid transparent;
+			border-bottom: 280px solid $cherrywood;
+			@include transform(rotate(103deg));
+		}
+	}
+	&Branch {
+		padding: 0;
+		margin: 0;
+		height: 100%;
+		position: relative;
+		width: 100%;
+		&.one{
+			&::before{
+				content: '';
+				display: block;
+				position: absolute;
+				left: 46%;
+				top: 55px;
+				margin: 0 auto;
+				width: 12px;
+				height: 0px;
+				border-right: 5px solid transparent;
+				border-left: 5px solid transparent;
+				border-bottom: 194px solid $cherrywood;
+				@include transform(rotate(80deg));
+			}
+		}
+	}
+	&Flower {
+		position: relative;
+		display: inline-block;
+		height: 100px;
+		width: 100px;
+		&--petal {
+			border-bottom-left-radius: 50%;
+			border-top-left-radius: 50%;
+			border-top-right-radius: 50%;
+			background: $beautybush;
+			box-shadow: inset -4px -5px 10px #bb6593;
+			height: 40%;
+			top: 0;
+			left: 0;
+			position: absolute;
+			width: 30%;
+			>span {
+				display: block;
+				position: absolute;
+				width: 2px;
+				height: 30%;
+				background: $gallery;
+				&::before {
+					background-color: $gallery;
+					border-radius: 50%;
+					content: '';
+					display: block;
+					height: 5px;
+					position: absolute;
+					width: 5px;
+				}
+			}
+			&:nth-of-type(1) {
+				@include transform(rotate(180deg));
+				left: 40%;
+				top: 56%;
+				>span {
+					@include transform(rotate(-15deg));
+					right: 45%;
+					bottom: 12%;
+					&::before {
+						right: -75%;
+						top: -37%;
+					}
+				}
+			}
+			&:nth-of-type(2) {
+				@include transform(rotate(-90deg));
+				left: 14%;
+				top: 50%;
+				>span {
+					@include transform(rotate(-25deg));
+					left: 70%;
+					top: 70%;
+					&::before {
+						right: -75%;
+						top: -40%;
+					}
+				}
+			}
+			&:nth-of-type(3) {
+				@include transform(rotate(0deg));
+				left: 19%;
+				top: 19%;
+				>span {
+					@include transform(rotate(-45deg));
+					left: 70%;
+					top: 70%;
+					&::before {
+						right: -75%;
+						top: -40%;
+					}
+				}
+			}
+			&:nth-of-type(4) {
+				@include transform(rotate(68deg));
+				left: 45%;
+				top: 16%;
+				>span {
+					@include transform(rotate(-45deg));
+					left: 72%;
+					top: 60%;
+					&::before {
+						right: -75%;
+						top: -40%;
+					}
+				}
+			}
+			&:nth-of-type(5) {
+				@include transform(rotate(133deg));
+				right: 12%;
+				left: initial;
+				top: 40%;
+				>span {
+					@include transform(rotate(-35deg));
+					left: 70%;
+					top: 60%;
+					&::before {
+						right: -75%;
+						top: -40%;
+					}
+				}
+			}
+			&::after {
+				top: 0;
+				left: 50%;
+				border: solid transparent;
+				content: " ";
+				height: 0;
+				width: 0;
+				position: absolute;
+				pointer-events: none;
+				border-color: rgba(136, 183, 213, 0);
+				border-top-color: $gallery;
+				border-width: 5px;
+				margin-left: -5px;
+			}
+		}
+		&--pistil {
+			position: absolute;
+			height: 10%;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			display: block;
+			width: 10%;
+			background: $gallery;
+			top: 52%;
+			border-radius: 50%;
+		}
+		&.small {
+			height: 50px;
+			width: 50px;
+			.sakuraTreeFlower--petal {
+				>span {
+					width: 1px;
+					&::before {
+						width: 3px;
+						height: 3px;
+					}
+				}
+			}
+		}
+	}
+}
